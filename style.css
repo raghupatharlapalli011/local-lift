@@ -1,0 +1,1022 @@
+/* --- 1. CORE VARIABLES (Green Theme) --- */
+:root {
+    /* Trustworthy Emerald Green */
+    --primary-green: #2E7D32; 
+    --dark-green: #1B5E20;
+    --light-green-bg: #E8F5E9;
+    --accent-green: #4CAF50;
+    
+    --text-main: #202124;
+    --text-soft: #5f6368;
+    --white: #ffffff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #F9FBF9;
+    color: var(--text-main);
+}
+
+/* --- 2. HEADER / NAVIGATION --- */
+header {
+    background: var(--white);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--primary-green);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Middle Navigation */
+.nav-center {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--primary-green);
+}
+
+/* Underline effect for hover */
+.nav-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--primary-green);
+    transition: width 0.3s;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Right Side Actions */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* --- DROPDOWN CSS --- */
+.lang-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.lang-btn {
+    background: transparent;
+    border: 1px solid #ddd;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: var(--transition);
+    min-width: 100px;
+    justify-content: center;
+}
+.lang-btn:hover {
+    border-color: var(--primary-green);
+    color: var(--primary-green);
+}
+
+.lang-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--white);
+    min-width: 120px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    z-index: 1001;
+    margin-top: 8px;
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+
+.lang-menu.show {
+    display: block;
+}
+
+.lang-option {
+    color: var(--text-main);
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.lang-option:hover {
+    background-color: var(--light-green-bg);
+    color: var(--primary-green);
+}
+
+/* Sign In Link */
+.signin-btn {
+    text-decoration: none;
+    background-color: var(--primary-green);
+    font-weight: 600;
+    padding: 6px 20px 8px 20px;
+    margin-right: 5px;
+    color:  var(--white);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+}
+.signin-btn:hover {
+    background:var(--white) ;
+    color:var(--primary-green) ;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(46, 125, 50, 0.3);
+    border: 0.5px solid var(--primary-green);
+}
+
+/* CTA Button */
+.cta-btn {
+    padding: 10px 24px;
+    background: var(--primary-green);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.cta-btn:hover {
+    background: var(--dark-green);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(46, 125, 50, 0.3);
+}
+
+/* --- 3. HERO SECTION --- */
+.hero-section {
+    text-align: center;
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    animation: fadeIn 0.8s ease-out;
+}
+
+h1 {
+    font-size: 3.2rem;
+    color: #111;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+h1 span {
+    color: var(--primary-green);
+}
+
+.hero-sub {
+    font-size: 1.15rem;
+    color: var(--text-soft);
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* WhatsApp Badge */
+.wa-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #DCF8C6; /* WhatsApp Light Green */
+    color: #075E54;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* --- 4. HOW IT WORKS (Featured Box) --- */
+.how-it-works-box {
+    background: var(--white);
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 40px;
+    margin: 30px auto;
+    box-shadow: var(--shadow);
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Green top border line */
+.how-it-works-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--primary-green);
+}
+.how-it-work-text{
+    text-align: center;
+}
+
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 25px;
+}
+
+.step {
+    position: relative;
+}
+
+.step-icon {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.step h4 {
+    color: var(--dark-green);
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.step p {
+    font-size: 0.9rem;
+    color: var(--text-soft);
+    line-height: 1.5;
+    margin-bottom: 0; /* Override default */
+}
+
+/* --- 5. ANIMATIONS --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- 6. CHOOSE YOUR PATH SECTION (NEW) --- */
+.path-section {
+    padding: 60px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.path-title {
+    font-size: 2.5rem;
+    color: #111;
+    margin-bottom: 15px;
+}
+
+.path-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-soft);
+    margin-bottom: 50px;
+}
+
+.path-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 in top row */
+    gap: 30px;
+    justify-content: center;
+}
+
+/* Logic for bottom 2 items to center */
+.path-grid .bottom-row-wrapper {
+    grid-column: 1 / -1; /* Span full width */
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Card Styling */
+.path-card {
+    background: var(--white);
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: left;
+    transition: var(--transition);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    display: flex;
+    flex-direction: column;
+    /* ensure consistent height */
+    height: 100%;
+}
+
+.path-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(30, 188, 87);
+    border-color:#25D366 ;
+}
+
+/* Card Icons */
+.path-icon-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+/* Specific background colors for icons */
+.bg-purple { background-color: #EDE7F6; color: #673AB7; }
+.bg-orange { background-color: #FFF3E0; color: #FF9800; }
+.bg-green { background-color: #E8F5E9; color: #4CAF50; }
+.bg-blue { background-color: #E3F2FD; color: #2196F3; } /* Indigo look */
+.bg-yellow { background-color: #FFFDE7; color: #FBC02D; }
+
+.path-card h3 {
+    font-size: 1.3rem;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.path-card p.desc {
+    font-size: 0.95rem;
+    color: var(--text-soft);
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Pushes content down */
+}
+
+/* Bullet Lists in Cards */
+.path-list {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.path-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--text-soft);
+    margin-bottom: 8px;
+}
+
+.path-list li::before {
+    content: '•';
+    color: var(--primary-green); /* Or dynamically change per card */
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 1rem;
+}
+
+/* Get Started Link */
+.card-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: var(--transition);
+    margin-top: auto; /* Push to bottom */
+    justify-content: flex-end;
+}
+
+.card-link:hover {
+    gap: 8px;
+    color: var(--primary-green);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .path-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    nav { flex-direction: column; gap: 15px; }
+    .nav-center { flex-wrap: wrap; justify-content: center; }
+    h1 { font-size: 2.2rem; }
+    
+    .path-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .path-grid .bottom-row-wrapper {
+        flex-direction: column;
+    }
+    
+    .path-card {
+        max-width: 400px;
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+/* --- 7. WORKER PAGE STYLES --- */
+
+.worker-hero {
+    padding: 60px 20px;
+    background-color: #F9FBF9;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.worker-badge {
+    background-color: #25D366; /* WhatsApp Green */
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.worker-sub {
+    color: var(--text-soft);
+    max-width: 600px;
+    margin: 10px auto 40px auto;
+    font-size: 1.05rem;
+}
+
+/* Form Card */
+.wa-form-card {
+    background: var(--white);
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    border: 1px solid #eee;
+    text-align: left;
+    animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.wa-icon {
+    font-size: 1.5rem;
+    color: #25D366;
+}
+
+.form-desc {
+    color: var(--text-soft);
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.form-input:focus {
+    border-color: #25D366;
+    box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.1);
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon .icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.input-with-icon .form-input {
+    padding-left: 40px;
+}
+
+.form-group small {
+    display: block;
+    color: #888;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.skill-btn {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 10px 5px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.skill-btn:hover {
+    border-color: #25D366;
+    background-color: #f0fdf4;
+}
+
+.skill-btn.selected {
+    background-color: #dcfce7;
+    border-color: #22c55e;
+    color: #166534;
+    font-weight: 600;
+}
+
+/* Submit Button */
+.wa-submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #25D366;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.wa-submit-btn:hover {
+    background-color: #1ebc57;
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/* --- 8. EMPLOYER PAGE STYLES --- */
+
+.employer-hero {
+    padding: 60px 20px;
+    background-color: #F9FBF9;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.emp-badge {
+    background-color: #1ebc57; /* Orange */
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.employer-hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: #111;
+}
+
+.emp-sub {
+    color: var(--text-soft);
+    font-size: 1.15rem;
+    margin-bottom: 50px;
+}
+
+/* 2-Column Layout */
+.employer-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.8fr;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: left;
+    align-items: start;
+}
+
+/* Left Column: Info Cards */
+.emp-info-col {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.emp-info-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+.emp-info-card:hover{
+   box-shadow: 5px 2px 8px rgba(30, 188, 87);
+}
+
+.emp-info-card h4 {
+    color: #111;
+    margin-bottom: 5px;
+    font-size: 1.05rem;
+}
+
+.emp-info-card p {
+    font-size: 0.9rem;
+    color: var(--text-soft);
+}
+
+.highlight-card {
+    background: #F3E8FF; /* Light purple */
+    border-color: #E9D5FF;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.highlight-card h2 {
+    font-size: 2.5rem;
+    color: #1ebc57;
+    margin-bottom: 5px;
+}
+
+/* Right Column: Form Card */
+.emp-form-card {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid #eee;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+    animation: fadeIn 0.8s ease-out;
+}
+.emp-form-card:hover{
+    border : 1px solid #1ebc57;
+    transition: 1s;
+}
+
+.emp-form-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.emp-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    background: #F3E8FF;
+    color: #1ebc57; /* Purple */
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form Grid System */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.form-grid .full-width {
+    grid-column: 1 / -1;
+}
+
+select.form-input {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23999%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px top 50%;
+    background-size: 12px auto;
+}
+
+/* Green Submit Button */
+.emp-submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: #1ebc57; /* Purple to Pink Gradient */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.emp-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(42, 22,0, 0.3);
+}
+
+.form-footer-note {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-soft);
+    margin-top: 20px;
+}
+
+/* Responsive adjustments for Employers Page */
+@media (max-width: 900px) {
+    .employer-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .emp-info-col {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .emp-info-card {
+        flex: 1 1 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* --- 9. WHY CHOOSE LOCALLIFT SECTION --- */
+.why-section {
+    padding: 70px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.why-title {
+    font-size: 2.4rem;
+    color: #111;
+    margin-bottom: 12px;
+}
+
+.why-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-soft);
+    margin-bottom: 50px;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.why-card {
+    background: var(--white);
+    border: 1px solid #eee;
+    border-radius: 14px;
+    padding: 32px 28px;
+    text-align: left;
+    transition: var(--transition);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.why-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(46,125,50,0.1);
+    border-color: green;
+}
+
+.why-icon-box {
+    width: 48px;
+    height: 48px;
+    background: #EDE9FE; /* soft lavender matching screenshot */
+    color: #6D28D9;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.why-card h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 8px;
+}
+
+.why-card p {
+    font-size: 0.9rem;
+    color: var(--text-soft);
+    line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+    .why-grid { grid-template-columns: 1fr; }
+    .why-title { font-size: 1.8rem; }
+}
+
+/* --- 10. FOOTER --- */
+.site-footer {
+    background: #111;
+    color: #ccc;
+    padding: 60px 5% 0;
+    margin-top: 40px;
+}
+
+.footer-inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 14px;
+}
+
+.footer-tagline {
+    font-size: 0.88rem;
+    color: #888;
+    line-height: 1.65;
+    margin-bottom: 20px;
+    max-width: 260px;
+}
+
+.footer-social {
+    display: flex;
+    gap: 10px;
+}
+
+.social-link {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: #1e1e1e;
+    border: 1px solid #2a2a2a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.social-link:hover {
+    background: var(--primary-green);
+    color: #fff;
+    border-color: var(--primary-green);
+    transform: translateY(-2px);
+}
+
+.footer-links-group h5 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #fff;
+    margin-bottom: 18px;
+}
+
+.footer-links-group ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links-group ul li a {
+    text-decoration: none;
+    color: #888;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.footer-links-group ul li a:hover {
+    color: #4CAF50;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.footer-bottom p {
+    font-size: 0.82rem;
+    color: #555;
+}
+
+.footer-bottom-right {
+    font-style: italic;
+}
+
+@media (max-width: 1000px) {
+    .footer-inner {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 640px) {
+    .footer-inner {
+        grid-template-columns: 1fr 1fr;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 380px) {
+    .footer-inner {
+        grid-template-columns: 1fr;
+    }
+}

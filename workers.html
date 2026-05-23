@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locallift - For Workers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div href="index.html" class="logo">🌿 Locallift</div>
+            <div class="nav-center">
+                <a href="index.html" class="nav-link" data-key="nav_home">Home</a>
+                <a href="workers.html" class="nav-link active" data-key="nav_workers">For Workers</a>
+                <a href="employers.html" class="nav-link" data-key="nav_employers">For Employers</a>
+                <a href="#" class="nav-link" data-key="nav_jobs">For Aspirants</a>
+                <a href="#" class="nav-link" data-key="nav_mentors">Find Mentors</a>
+            </div>
+            <div class="nav-right">
+                <div class="lang-dropdown">
+                    <button class="lang-btn" onclick="toggleDropdown()">
+                        🌐 <span id="lang-display">English</span> ▾
+                    </button>
+                    <div id="langDropdown" class="lang-menu">
+                        <div class="lang-option" onclick="selectLanguage('en')">English</div>
+                        <div class="lang-option" onclick="selectLanguage('hi')">हिंदी</div>
+                        <div class="lang-option" onclick="selectLanguage('te')">తెలుగు</div>
+                    </div>
+                </div>
+                <a href="signin.html" class="signin-btn" data-key="btn_signin">Sign In</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="worker-hero">
+        <div class="worker-badge" data-key="wa_badge_worker">💬 WhatsApp Job Alerts</div>
+        <h1 data-key="hero_title_worker">Get Local Jobs on WhatsApp</h1>
+        <p class="worker-sub" data-key="hero_sub_worker">Register your skills and location. Get instant job notifications when employers near you post matching opportunities.</p>
+
+        <div class="wa-form-card">
+            <div class="card-header">
+                <span class="wa-icon">💬</span>
+                <h3 data-key="form_header">Enable WhatsApp Notifications</h3>
+            </div>
+            <p class="form-desc" data-key="form_desc">Fill in your details to receive job alerts matching your skills</p>
+
+            <form id="worker-form" onsubmit="handleWorkerSubmit(event)">
+                <div class="form-group">
+                    <label data-key="label_name">Full Name</label>
+                    <input type="text" placeholder="Enter your full name" class="form-input" data-key="ph_name">
+                </div>
+
+                <div class="form-group">
+                    <label data-key="label_wa">WhatsApp Number</label>
+                    <div class="input-with-icon">
+                        <span class="icon">📞</span>
+                        <input type="tel" placeholder="+91 9876543210" class="form-input" data-key="ph_wa">
+                    </div>
+                    <small data-key="small_wa">We'll send job alerts to this WhatsApp number</small>
+                </div>
+
+                <div class="form-group">
+                    <label data-key="label_loc">Your Location</label>
+                    <div class="input-with-icon">
+                        <span class="icon">📍</span>
+                        <input type="text" placeholder="e.g., Koramangala, Bangalore" class="form-input" data-key="ph_loc">
+                    </div>
+                    <small data-key="small_loc">You'll receive jobs within 10km of this location</small>
+                </div>
+
+                <div class="form-group">
+                    <label data-key="label_skills">Select Your Skills</label>
+                    <div class="skills-grid">
+                        <button type="button" class="skill-btn" onclick="toggleSkill(this)" data-key="skill_1">⚡ Electrician</button>
+                        <button type="button" class="skill-btn" onclick="toggleSkill(this)" data-key="skill_2">🔧 Plumber</button>
+                        <button type="button" class="skill-btn" onclick="toggleSkill(this)" data-key="skill_3">🎨 Painter</button>
+                        <button type="button" class="skill-btn" onclick="toggleSkill(this)" data-key="skill_4">🔨 Carpenter</button>
+                        <button type="button" class="skill-btn" onclick="toggleSkill(this)" data-key="skill_5">🚗 Driver</button>
+                        <button type="button" class="skill-btn" onclick="toggleSkill(this)" data-key="skill_6">🍳 Cook/Chef</button>
+                        <button type="button" class="skill-btn" onclick="toggleSkill(this)" data-key="skill_7">✂️ Tailor</button>
+                        <button type="button" class="skill-btn" onclick="toggleSkill(this)" data-key="skill_8">🚚 Delivery</button>
+                        <button type="button" class="skill-btn" onclick="toggleSkill(this)" data-key="skill_9">⚙️ Mechanic</button>
+                    </div>
+                </div>
+
+                <button type="submit" id="worker-submit-btn" class="wa-submit-btn" data-key="btn_submit_wa">
+                    💬 Enable WhatsApp Alerts
+                </button>
+            </form>
+
+            <!-- Success State -->
+            <div id="worker-success" style="display:none; text-align:center; padding: 20px 10px;">
+                <div style="font-size: 3rem; margin-bottom: 12px;">🎉</div>
+                <h3 style="color: #25D366; margin-bottom: 8px;">You're all set!</h3>
+                <p style="color: #555; font-size: 0.95rem; margin-bottom: 6px;">Job alerts are now active on your WhatsApp.</p>
+                <p style="color: #888; font-size: 0.85rem;">Employers near you will be notified about your profile. You'll hear from us soon!</p>
+                <button onclick="resetWorkerForm()" style="margin-top: 20px; background: none; border: 1px solid #25D366; color: #25D366; padding: 8px 20px; border-radius: 8px; cursor: pointer; font-size: 0.9rem;">Edit my details</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Simple script to toggle skill selection
+        function toggleSkill(btn) {
+            btn.classList.toggle('selected');
+        }
+
+        // --- FORM SUBMIT WITH LOADING + SUCCESS ---
+        function handleWorkerSubmit(e) {
+            e.preventDefault();
+            const btn = document.getElementById('worker-submit-btn');
+
+            // Loading state
+            btn.disabled = true;
+            btn.textContent = '⏳ Registering...';
+            btn.style.opacity = '0.8';
+            btn.style.cursor = 'not-allowed';
+
+            // Simulate API call (replace with real fetch later)
+            setTimeout(() => {
+                document.getElementById('worker-form').style.display = 'none';
+                document.getElementById('worker-success').style.display = 'block';
+            }, 1800);
+        }
+
+        function resetWorkerForm() {
+            const btn = document.getElementById('worker-submit-btn');
+            btn.disabled = false;
+            btn.textContent = '💬 Enable WhatsApp Alerts';
+            btn.style.opacity = '1';
+            btn.style.cursor = 'pointer';
+            document.getElementById('worker-form').style.display = 'block';
+            document.getElementById('worker-success').style.display = 'none';
+        }
+
+        // --- TRANSLATION LOGIC ---
+        const translations = {
+            en: {
+                display: "English",
+                nav_home: "Home",
+                nav_workers: "For Workers",
+                nav_employers: "For Employers",
+                nav_jobs: "Find Jobs",
+                nav_mentors: "Find Mentors",
+                btn_signin: "Sign In",
+                btn_getstarted: "Get Started",
+                
+                wa_badge_worker: "💬 WhatsApp Job Alerts",
+                hero_title_worker: "Get Local Jobs on WhatsApp",
+                hero_sub_worker: "Register your skills and location. Get instant job notifications when employers near you post matching opportunities.",
+                
+                form_header: "Enable WhatsApp Notifications",
+                form_desc: "Fill in your details to receive job alerts matching your skills",
+                
+                label_name: "Full Name",
+                ph_name: "Enter your full name",
+                
+                label_wa: "WhatsApp Number",
+                ph_wa: "+91 9876543210",
+                small_wa: "We'll send job alerts to this WhatsApp number",
+                
+                label_loc: "Your Location",
+                ph_loc: "e.g., Koramangala, Bangalore",
+                small_loc: "You'll receive jobs within 10km of this location",
+                
+                label_skills: "Select Your Skills",
+                skill_1: "⚡ Electrician",
+                skill_2: "🔧 Plumber",
+                skill_3: "🎨 Painter",
+                skill_4: "🔨 Carpenter",
+                skill_5: "🚗 Driver",
+                skill_6: "🍳 Cook/Chef",
+                skill_7: "✂️ Tailor",
+                skill_8: "🚚 Delivery",
+                skill_9: "⚙️ Mechanic",
+                
+                btn_submit_wa: "💬 Enable WhatsApp Alerts"
+            },
+            hi: {
+                display: "हिंदी",
+                nav_home: "होम",
+                nav_workers: "श्रमिकों के लिए",
+                nav_employers: "नियोक्ताओं के लिए",
+                nav_jobs: "नौकरियां खोजें",
+                nav_mentors: "मेंटर्स खोजें",
+                btn_signin: "साइन इन",
+                btn_getstarted: "शुरू करें",
+                
+                wa_badge_worker: "💬 व्हाट्सएप जॉब अलर्ट",
+                hero_title_worker: "व्हाट्सएप पर स्थानीय नौकरियां पाएं",
+                hero_sub_worker: "अपना कौशल और स्थान दर्ज करें। जब आपके आस-पास के नियोक्ता आपकी प्रोफ़ाइल से मेल खाती नौकरी पोस्ट करें तो तुरंत अलर्ट पाएं।",
+                
+                form_header: "व्हाट्सएप नोटिफिकेशन चालू करें",
+                form_desc: "अपने कौशल से मेल खाने वाले जॉब अलर्ट पाने के लिए अपना विवरण भरें",
+                
+                label_name: "पूरा नाम",
+                ph_name: "अपना पूरा नाम दर्ज करें",
+                
+                label_wa: "व्हाट्सएप नंबर",
+                ph_wa: "+91 9876543210",
+                small_wa: "हम इस व्हाट्सएप नंबर पर जॉब अलर्ट भेजेंगे",
+                
+                label_loc: "आपका स्थान",
+                ph_loc: "उदा., कोरमंगला, बैंगलोर",
+                small_loc: "आपको इस स्थान के 10 किमी के भीतर नौकरियां मिलेंगी",
+                
+                label_skills: "अपने कौशल चुनें",
+                skill_1: "⚡ इलेक्ट्रीशियन",
+                skill_2: "🔧 प्लंबर",
+                skill_3: "🎨 पेंटर",
+                skill_4: "🔨 बढ़ई",
+                skill_5: "🚗 ड्राइवर",
+                skill_6: "🍳 रसोइया",
+                skill_7: "✂️ दर्जी",
+                skill_8: "🚚 डिलीवरी",
+                skill_9: "⚙️ मैकेनिक",
+                
+                btn_submit_wa: "💬 व्हाट्सएप अलर्ट चालू करें"
+            },
+            te: {
+                display: "తెలుగు",
+                nav_home: "హోమ్",
+                nav_workers: "కార్మికుల కోసం",
+                nav_employers: "యజమానుల కోసం",
+                nav_jobs: "ఉద్యోగాలను వెతకండి",
+                nav_mentors: "మెంటర్లను వెతకండి",
+                btn_signin: "సైన్ ఇన్",
+                btn_getstarted: "ప్రారంభించండి",
+                
+                wa_badge_worker: "💬 WhatsApp జాబ్ అలర్ట్స్",
+                hero_title_worker: "WhatsAppలో స్థానిక ఉద్యోగాలు పొందండి",
+                hero_sub_worker: "మీ నైపుణ్యాలు మరియు స్థానాన్ని నమోదు చేయండి. మీ సమీపంలోని యజమానులు ఉద్యోగాలు పోస్ట్ చేసినప్పుడు తక్షణ నోటిఫికేషన్‌లను పొందండి.",
+                
+                form_header: "WhatsApp నోటిఫికేషన్‌లను ఆన్ చేయండి",
+                form_desc: "మీ నైపుణ్యాలకు సరిపోయే ఉద్యోగాల కోసం మీ వివరాలను పూరించండి",
+                
+                label_name: "పూర్తి పేరు",
+                ph_name: "మీ పూర్తి పేరు నమోదు చేయండి",
+                
+                label_wa: "WhatsApp నంబర్",
+                ph_wa: "+91 9876543210",
+                small_wa: "మేము ఈ నంబర్‌కు జాబ్ అలర్ట్స్ పంపుతాము",
+                
+                label_loc: "మీ స్థానం",
+                ph_loc: "ఉదా., కోరమంగళ, బెంగళూరు",
+                small_loc: "మీరు ఈ స్థానానికి 10 కి.మీ పరిధిలో ఉద్యోగాలు పొందుతారు",
+                
+                label_skills: "మీ నైపుణ్యాలను ఎంచుకోండి",
+                skill_1: "⚡ ఎలక్ట్రీషియన్",
+                skill_2: "🔧 ప్లంబర్",
+                skill_3: "🎨 పెయింటర్",
+                skill_4: "🔨 వడ్రంగి",
+                skill_5: "🚗 డ్రైవర్",
+                skill_6: "🍳 వంట మనిషి",
+                skill_7: "✂️ టైలర్",
+                skill_8: "🚚 డెలివరీ",
+                skill_9: "⚙️ మెకానిక్",
+                
+                btn_submit_wa: "💬 WhatsApp అలర్ట్స్ ఆన్ చేయండి"
+            }
+        };
+
+        /* Toggle Dropdown Visibility */
+        function toggleDropdown() {
+            document.getElementById("langDropdown").classList.toggle("show");
+        }
+
+        /* Select Language & Update Content */
+        function selectLanguage(lang) {
+            // Update Dropdown Button Text
+            document.getElementById('lang-display').innerText = translations[lang].display;
+
+            // Update all content texts & placeholders
+            const elements = document.querySelectorAll('[data-key]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    // Check if it is an input field to update placeholder instead of inner text
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = translations[lang][key];
+                    } else {
+                        el.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+
+            // Close the dropdown menu
+            document.getElementById("langDropdown").classList.remove("show");
+        }
+
+        /* Close Dropdown if Clicked Outside */
+        window.onclick = function(event) {
+            if (!event.target.matches('.lang-btn') && !event.target.closest('.lang-btn')) {
+                var dropdowns = document.getElementsByClassName("lang-menu");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

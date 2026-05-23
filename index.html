@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locallift - Choose Your Path</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div href="index.html" class="logo">🌿 Locallift</div>
+
+            <div class="nav-center">
+                <a href="workers.html" class="nav-link" data-key="nav_workers">For Workers</a>
+                <a href="employers.html" class="nav-link" data-key="nav_employers">For Employers</a>
+                <a href="#" class="nav-link" data-key="nav_jobs">For Aspirants</a>
+                <a href="#" class="nav-link" data-key="nav_mentors">Find Mentors</a>
+            </div>
+
+            <div class="nav-right">
+                <div class="lang-dropdown">
+                    <button class="lang-btn" onclick="toggleDropdown()">
+                        🌐 <span id="lang-display">English</span> ▾
+                    </button>
+                    <div id="langDropdown" class="lang-menu">
+                        <div class="lang-option" onclick="selectLanguage('en')">English</div>
+                        <div class="lang-option" onclick="selectLanguage('hi')">हिंदी</div>
+                        <div class="lang-option" onclick="selectLanguage('te')">తెలుగు</div>
+                    </div>
+                </div>
+
+                <a href="signin.html" class="signin-btn" data-key="btn_signin">Sign In</a>
+                
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <div class="wa-badge">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            <span data-key="wa_badge">Get Instant Alerts on WhatsApp</span>
+        </div>
+
+        <h1 data-key="hero_title">
+            Connect Local Skills with <span data-key="hero_span">Opportunities</span>
+        </h1>
+        
+        <p class="hero-sub" data-key="hero_sub">
+            The trusted platform connecting students with mentors, skilled workers with local jobs, and businesses with verified talent.
+        </p>
+
+        <div class="how-it-works-box">
+            <h3 data-key="hiw_header" class="how-it-work-text">How Locallift Works</h3>
+            
+            <div class="steps-container">
+                <div class="step">
+                    <span class="step-icon">📝</span>
+                    <h4 data-key="step1_title">1. Create Profile</h4>
+                    <p data-key="step1_desc">Sign up easily with your mobile number and post your skills and with location.</p>
+                </div>
+
+                <div class="step">
+                    <span class="step-icon">💬</span>
+                    <h4 data-key="step2_title">2. WhatsApp Alerts</h4>
+                    <p data-key="step2_desc">Get notification based on your skill and the location about job posting.</p>
+                </div>
+
+                <div class="step">
+                    <span class="step-icon">🤝</span>
+                    <h4 data-key="step3_title">3. Connect & Earn</h4>
+                    <p data-key="step3_desc">Chat with employers, complete the job, and get paid securely.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="path-section">
+        <h2 class="path-title" data-key="path_title">Choose Your Path</h2>
+        <p class="path-subtitle" data-key="path_subtitle">Whether you're looking to learn, teach, find work, or hire talent — we've got you covered.</p>
+
+        <div class="path-grid">
+            <div class="path-card">
+                <div class="path-icon-box bg-purple">🎓</div>
+                <h3 data-key="card1_title">Students</h3>
+                <p class="desc" data-key="card1_desc">Connect with verified mentors for academic guidance, career counseling, and exam preparation.</p>
+                <ul class="path-list">
+                    <li data-key="card1_li1">Find mentors by subject</li>
+                    <li data-key="card1_li2">Online & offline sessions</li>
+                    <li data-key="card1_li3">Track your progress</li>
+                </ul>
+                <a href="#" class="card-link"><span data-key="link_getstarted">Get Started</span> →</a>
+            </div>
+
+            <div class="path-card">
+                <div class="path-icon-box bg-orange">👥</div>
+                <h3 data-key="card2_title">Teachers & Mentors</h3>
+                <p class="desc" data-key="card2_desc">Share your knowledge and guide students who need your expertise and experience.</p>
+                <ul class="path-list">
+                    <li data-key="card2_li1">Flexible scheduling</li>
+                    <li data-key="card2_li2">Set your own rates</li>
+                    <li data-key="card2_li3">Build your reputation</li>
+                </ul>
+                <a href="#" class="card-link"><span data-key="link_getstarted">Get Started</span> →</a>
+            </div>
+
+            <div class="path-card">
+                <div class="path-icon-box bg-green">💼</div>
+                <h3 data-key="card3_title">Skilled Workers</h3>
+                <p class="desc" data-key="card3_desc">Find local job opportunities that match your skills, location, and availability.</p>
+                <ul class="path-list">
+                    <li data-key="card3_li1">WhatsApp job alerts</li>
+                    <li data-key="card3_li2">Skill-based matching</li>
+                    <li data-key="card3_li3">Direct employer contact</li>
+                </ul>
+                <a href="#" class="card-link"><span data-key="link_getstarted">Get Started</span> →</a>
+            </div>
+
+            <div class="bottom-row-wrapper">
+                <div class="path-card" style="flex: 0 1 350px;"> <div class="path-icon-box bg-blue">🏢</div>
+                    <h3 data-key="card4_title">Local Businesses</h3>
+                    <p class="desc" data-key="card4_desc">Post jobs and hire verified skilled workers from your local area quickly.</p>
+                    <ul class="path-list">
+                        <li data-key="card4_li1">Verified worker profiles</li>
+                        <li data-key="card4_li2">Easy job posting</li>
+                        <li data-key="card4_li3">Fast hiring</li>
+                    </ul>
+                    <a href="#" class="card-link"><span data-key="link_getstarted">Get Started</span> →</a>
+                </div>
+
+                <div class="path-card" style="flex: 0 1 350px;">
+                    <div class="path-icon-box bg-yellow">📄</div>
+                    <h3 data-key="card5_title">Govt. Job Aspirants</h3>
+                    <p class="desc" data-key="card5_desc">Access mentorship and resources specifically designed for government exam preparation.</p>
+                    <ul class="path-list">
+                        <li data-key="card5_li1">Exam-specific guidance</li>
+                        <li data-key="card5_li2">Study materials</li>
+                        <li data-key="card5_li3">Mock tests</li>
+                    </ul>
+                    <a href="#" class="card-link"><span data-key="link_getstarted">Get Started</span> →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         WHY CHOOSE LOCALLIFT SECTION
+    ═══════════════════════════════════════ -->
+    <section class="why-section">
+        <h2 class="why-title">Why Choose Locallift?</h2>
+        <p class="why-subtitle">Built with trust, accessibility, and simplicity at its core.</p>
+
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="why-icon-box">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h4>Verified Profiles</h4>
+                <p>All mentors and workers are verified for identity, skills, and qualifications.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="why-icon-box">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <h4>Location-Based</h4>
+                <p>Find opportunities and talent right in your neighborhood or city.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="why-icon-box">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <h4>WhatsApp Integration</h4>
+                <p>Get instant job alerts and communicate seamlessly via WhatsApp.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="why-icon-box">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h4>Flexible Timing</h4>
+                <p>Set your availability and find work that fits your schedule.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="why-icon-box">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h4>Trusted Network</h4>
+                <p>Join a community of 50,000+ verified users across India.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="why-icon-box">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                </div>
+                <h4>Mobile First</h4>
+                <p>Designed for everyone — easy to use even on basic smartphones.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         FOOTER
+    ═══════════════════════════════════════ -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <!-- Brand -->
+            <div class="footer-brand">
+                <div class="footer-logo">🌿 Locallift</div>
+                <p class="footer-tagline">India's trusted platform connecting local skills with real opportunities — through WhatsApp.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link" title="WhatsApp">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    </a>
+                    <a href="#" class="social-link" title="Twitter/X">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="#" class="social-link" title="Instagram">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    </a>
+                    <a href="#" class="social-link" title="LinkedIn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Links -->
+            <div class="footer-links-group">
+                <h5>Platform</h5>
+                <ul>
+                    <li><a href="workers.html">For Workers</a></li>
+                    <li><a href="employers.html">For Employers</a></li>
+                    <li><a href="#">Find Jobs</a></li>
+                    <li><a href="#">Find Mentors</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-group">
+                <h5>Users</h5>
+                <ul>
+                    <li><a href="#">Students</a></li>
+                    <li><a href="#">Teachers & Mentors</a></li>
+                    <li><a href="#">Skilled Workers</a></li>
+                    <li><a href="#">Local Businesses</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-group">
+                <h5>Company</h5>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-group">
+                <h5>Legal</h5>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Locallift. All rights reserved. Made with 💚 for India.</p>
+            <p class="footer-bottom-right">Connecting skills · Creating opportunities · Changing lives</p>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                display: "English",
+                nav_workers: "For Workers",
+                nav_employers: "For Employers",
+                nav_jobs: "Find Jobs",
+                nav_mentors: "Find Mentors",
+                btn_signin: "Sign In",
+                btn_getstarted: "Get Started",
+                wa_badge: "Get Instant Alerts on WhatsApp",
+                hero_title: 'Connect Local Skills with <span style="color: #2E7D32">Opportunities</span>',
+                hero_sub: "The trusted platform connecting students with mentors, skilled workers with local jobs, and businesses with verified talent.",
+                hiw_header: "How Locallift Works",
+                step1_title: "1. Create Profile",
+                step1_desc: "Sign up easily with your mobile number and post your skills and with location.",
+                step2_title: "2. WhatsApp Alerts",
+                step2_desc: "Get notification based on your skill and the location about job posting.",
+                step3_title: "3. Connect & Earn",
+                step3_desc: "Chat with employers, complete the job, and get paid securely.",
+                
+                // New Section
+                path_title: "Choose Your Path",
+                path_subtitle: "Whether you're looking to learn, teach, find work, or hire talent — we've got you covered.",
+                link_getstarted: "Get Started",
+                card1_title: "Students",
+                card1_desc: "Connect with verified mentors for academic guidance, career counseling, and exam preparation.",
+                card1_li1: "Find mentors by subject",
+                card1_li2: "Online & offline sessions",
+                card1_li3: "Track your progress",
+                card2_title: "Teachers & Mentors",
+                card2_desc: "Share your knowledge and guide students who need your expertise and experience.",
+                card2_li1: "Flexible scheduling",
+                card2_li2: "Set your own rates",
+                card2_li3: "Build your reputation",
+                card3_title: "Skilled Workers",
+                card3_desc: "Find local job opportunities that match your skills, location, and availability.",
+                card3_li1: "WhatsApp job alerts",
+                card3_li2: "Skill-based matching",
+                card3_li3: "Direct employer contact",
+                card4_title: "Local Businesses",
+                card4_desc: "Post jobs and hire verified skilled workers from your local area quickly.",
+                card4_li1: "Verified worker profiles",
+                card4_li2: "Easy job posting",
+                card4_li3: "Fast hiring",
+                card5_title: "Govt. Job Aspirants",
+                card5_desc: "Access mentorship and resources specifically designed for government exam preparation.",
+                card5_li1: "Exam-specific guidance",
+                card5_li2: "Study materials",
+                card5_li3: "Mock tests"
+            },
+            hi: {
+                display: "हिंदी",
+                nav_workers: "श्रमिकों के लिए",
+                nav_employers: "नियोक्ताओं के लिए",
+                nav_jobs: "नौकरियां खोजें",
+                nav_mentors: "मेंटर्स खोजें",
+                btn_signin: "साइन इन",
+                btn_getstarted: "शुरू करें",
+                wa_badge: "व्हाट्सएप पर तुरंत अलर्ट प्राप्त करें",
+                hero_title: 'स्थानीय कौशल को <span style="color: #2E7D32">अवसरों</span> से जोड़ें',
+                hero_sub: "छात्रों को मेंटर्स, कुशल श्रमिकों को स्थानीय नौकरियों और व्यवसायों को सही प्रतिभा से जोड़ने वाला विश्वसनीय मंच।",
+                hiw_header: "लोकललिफ्ट कैसे काम करता है",
+                step1_title: "1. प्रोफाइल बनाएं",
+                step1_desc: "आसानी से साइन अप करें और अपने कौशल या नौकरी की आवश्यकताओं को सूचीबद्ध करें।",
+                step2_title: "2. व्हाट्सएप अलर्ट",
+                step2_desc: "चूकें नहीं! मैच पाएं और सीधे व्हाट्सएप पर नोटिफिकेशन प्राप्त करें।",
+                step3_title: "3. जुड़ें और कमाएं",
+                step3_desc: "नियोक्ताओं से चैट करें, काम पूरा करें और सुरक्षित भुगतान प्राप्त करें।",
+
+                // New Section (Hindi)
+                path_title: "अपना रास्ता चुनें",
+                path_subtitle: "चाहे आप सीखना चाहते हों, पढ़ाना चाहते हों, काम ढूंढना चाहते हों, या प्रतिभा को काम पर रखना चाहते हों — हमारे पास सब कुछ है।",
+                link_getstarted: "शुरू करें",
+                card1_title: "छात्र",
+                card1_desc: "शैक्षणिक मार्गदर्शन, करियर परामर्श और परीक्षा की तैयारी के लिए सत्यापित मेंटर्स से जुड़ें।",
+                card1_li1: "विषय के अनुसार मेंटर्स खोजें",
+                card1_li2: "ऑनलाइन और ऑफलाइन सत्र",
+                card1_li3: "अपनी प्रगति ट्रैक करें",
+                card2_title: "शिक्षक और मेंटर्स",
+                card2_desc: "अपना ज्ञान साझा करें और उन छात्रों का मार्गदर्शन करें जिन्हें आपकी विशेषज्ञता और अनुभव की आवश्यकता है।",
+                card2_li1: "लचीला समय निर्धारण",
+                card2_li2: "अपनी दरें स्वयं तय करें",
+                card2_li3: "अपनी प्रतिष्ठा बनाएं",
+                card3_title: "कुशल श्रमिक",
+                card3_desc: "स्थानीय नौकरी के अवसर खोजें जो आपके कौशल, स्थान और उपलब्धता से मेल खाते हों।",
+                card3_li1: "व्हाट्सएप जॉब अलर्ट",
+                card3_li2: "कौशल-आधारित मिलान",
+                card3_li3: "सीधे नियोक्ता से संपर्क",
+                card4_title: "स्थानीय व्यवसाय",
+                card4_desc: "नौकरियां पोस्ट करें और अपने स्थानीय क्षेत्र से सत्यापित कुशल श्रमिकों को जल्दी से काम पर रखें।",
+                card4_li1: "सत्यापित श्रमिक प्रोफाइल",
+                card4_li2: "आसान जॉब पोस्टिंग",
+                card4_li3: "तेजी से भर्ती",
+                card5_title: "सरकारी नौकरी के उम्मीदवार",
+                card5_desc: "सरकारी परीक्षा की तैयारी के लिए विशेष रूप से डिज़ाइन किए गए मेंटरशिप और संसाधनों तक पहुंच प्राप्त करें।",
+                card5_li1: "परीक्षा-विशिष्ट मार्गदर्शन",
+                card5_li2: "अध्ययन सामग्री",
+                card5_li3: "मॉक टेस्ट"
+            },
+            te: {
+                display: "తెలుగు",
+                nav_workers: "కార్మికుల కోసం",
+                nav_employers: "యజమానుల కోసం",
+                nav_jobs: "ఉద్యోగాలను వెతకండి",
+                nav_mentors: "మెంటర్లను వెతకండి",
+                btn_signin: "సైన్ ఇన్",
+                btn_getstarted: "ప్రారంభించండి",
+                wa_badge: "WhatsAppలో తక్షణ అలర్ట్స్ పొందండి",
+                hero_title: 'స్థానిక నైపుణ్యాలను <span style="color: #2E7D32">అవకాశాలతో</span> అనుసంధానించండి',
+                hero_sub: "విద్యార్థులను మెంటర్లతో, నైపుణ్యం కలిగిన కార్మికులను స్థానిక ఉద్యోగాలతో మరియు వ్యాపారాలను సరైన ప్రతిభతో అనుసంధానించే విశ్వసనీయ వేదిక.",
+                hiw_header: "Locallift ఎలా పనిచేస్తుంది",
+                step1_title: "1. ప్రొఫైల్ సృష్టించండి",
+                step1_desc: "సులభంగా సైన్ అప్ చేయండి మరియు మీ నైపుణ్యాలను జాబితా చేయండి.",
+                step2_title: "2. WhatsApp అలర్ట్స్",
+                step2_desc: "ఏదీ మిస్ అవ్వకండి! నేరుగా WhatsAppలో నోటిఫికేషన్ పొందండి.",
+                step3_title: "3. కనెక్ట్ అవ్వండి & సంపాదించండి",
+                step3_desc: "యజమానులతో చాట్ చేయండి, పనిని పూర్తి చేయండి మరియు డబ్బు పొందండి.",
+
+                // New Section (Telugu)
+                path_title: "మీ మార్గాన్ని ఎంచుకోండి",
+                path_subtitle: "మీరు నేర్చుకోవాలనుకున్నా, బోధించాలనుకున్నా, పని వెతకాలనుకున్నా, లేదా ఉద్యోగులను నియమించుకోవాలనుకున్నా — మేము మీకు సహాయం చేస్తాము.",
+                link_getstarted: "ప్రారంభించండి",
+                card1_title: "విద్యార్థులు",
+                card1_desc: "అకడమిక్ మార్గదర్శకత్వం, కెరీర్ కౌన్సెలింగ్ మరియు పరీక్షల తయారీ కోసం వెరిఫైడ్ మెంటర్లతో కనెక్ట్ అవ్వండి.",
+                card1_li1: "సబ్జెక్ట్ వారీగా మెంటర్లను కనుగొనండి",
+                card1_li2: "ఆన్‌లైన్ & ఆఫ్‌లైన్ సెషన్లు",
+                card1_li3: "మీ పురోగతిని ట్రాక్ చేయండి",
+                card2_title: "ఉపాధ్యాయులు & మెంటార్స్",
+                card2_desc: "మీ జ్ఞానాన్ని పంచుకోండి మరియు మీ నైపుణ్యం మరియు అనుభవం అవసరమైన విద్యార్థులకు మార్గనిర్దేశం చేయండి.",
+                card2_li1: "ఫ్లెక్సిబుల్ షెడ్యూలింగ్",
+                card2_li2: "మీ రేట్లను మీరే నిర్ణయించుకోండి",
+                card2_li3: "మీ కీర్తిని పెంచుకోండి",
+                card3_title: "నైపుణ్యం కలిగిన కార్మికులు",
+                card3_desc: "మీ నైపుణ్యాలు, స్థానం మరియు లభ్యతకు సరిపోయే స్థానిక ఉద్యోగ అవకాశాలను కనుగొనండి.",
+                card3_li1: "WhatsApp జాబ్ అలర్ట్స్",
+                card3_li2: "నైపుణ్యం-ఆధారిత మ్యాచింగ్",
+                card3_li3: "నేరుగా యజమానిని సంప్రదించండి",
+                card4_title: "స్థానిక వ్యాపారాలు",
+                card4_desc: "ఉద్యోగాలను పోస్ట్ చేయండి మరియు మీ స్థానిక ప్రాంతం నుండి వెరిఫైడ్ నైపుణ్యం కలిగిన కార్మికులను త్వరగా నియమించుకోండి.",
+                card4_li1: "వెరిఫైడ్ వర్కర్ ప్రొఫైల్స్",
+                card4_li2: "సులభమైన జాబ్ పోస్టింగ్",
+                card4_li3: "వేగవంతమైన నియామకం",
+                card5_title: "ప్రభుత్వ ఉద్యోగ అభ్యర్థులు",
+                card5_desc: "ప్రభుత్వ పరీక్షల తయారీ కోసం ప్రత్యేకంగా రూపొందించిన మెంటర్షిప్ మరియు వనరులను పొందండి.",
+                card5_li1: "పరీక్ష-నిర్దిష్ట మార్గదర్శకత్వం",
+                card5_li2: "స్టడీ మెటీరియల్స్",
+                card5_li3: "మాక్ టెస్ట్స్"
+            }
+        };
+
+        /* Toggle Dropdown Visibility */
+        function toggleDropdown() {
+            document.getElementById("langDropdown").classList.toggle("show");
+        }
+
+        /* Select Language & Update Content */
+        function selectLanguage(lang) {
+            // 1. Update Button Text
+            document.getElementById('lang-display').innerText = translations[lang].display;
+
+            // 2. Update Content
+            const elements = document.querySelectorAll('[data-key]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    if(key === 'hero_title') {
+                        el.innerHTML = translations[lang][key];
+                    } else {
+                        el.innerText = translations[lang][key];
+                    }
+                }
+            });
+
+            // 3. Close Dropdown
+            document.getElementById("langDropdown").classList.remove("show");
+        }
+
+        /* Close Dropdown if Clicked Outside */
+        window.onclick = function(event) {
+            if (!event.target.matches('.lang-btn') && !event.target.closest('.lang-btn')) {
+                var dropdowns = document.getElementsByClassName("lang-menu");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

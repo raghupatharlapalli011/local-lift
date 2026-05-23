@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locallift - For Employers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a class="logo">🌿Locallift</a>
+           <div class="nav-center">
+                <a href="index.html" class="nav-link" data-key="nav_home">Home</a>
+                <a href="workers.html" class="nav-link active" data-key="nav_workers">For Workers</a>
+                <a href="employers.html" class="nav-link" data-key="nav_employers">For Employers</a>
+                <a href="#" class="nav-link" data-key="nav_jobs">For Aspirants</a>
+                <a href="#" class="nav-link" data-key="nav_mentors">Find Mentors</a>
+            </div>
+            <div class="nav-right">
+                <a href="signin.html" class="signin-btn">Sign In</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="employer-hero">
+        <div class="emp-badge">
+            🏢 For Employers
+        </div>
+        <h1>Hire Verified Workers</h1>
+        <p class="emp-sub">Post jobs and reach skilled workers in your area instantly via WhatsApp notifications.</p>
+
+        <div class="employer-layout">
+            <div class="emp-info-col">
+                <div class="emp-info-card">
+                    <h4>WhatsApp Alerts</h4>
+                    <p>Instant notifications directly on WhatsApp.</p>
+                </div>
+                <div class="emp-info-card">
+                    <h4>Verified Profiles</h4>
+                    <p>Checked for skills and identity.</p>
+                </div>
+                <div class="emp-info-card">
+                    <h4>Hyper-Local Matching</h4>
+                    <p>Workers within 10km of your job location.</p>
+                </div>
+                <div class="emp-info-card">
+                    <h4>Fast Hiring</h4>
+                    <p>Hire either for hours or days.</p>
+                </div>
+                <div class="emp-info-card highlight-card">
+                    <h2>50,000+</h2>
+                    <p>Verified workers ready to work</p>
+                </div>
+            </div>
+
+            <div class="emp-form-card">
+                <div class="emp-form-header">
+                    <div class="emp-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 style="font-size: 1.5rem; margin-bottom: 5px; color: #111;">Post a Job</h2>
+                        <p style="color: #666; font-size: 0.95rem;">Fill in the details to notify matching workers</p>
+                    </div>
+                </div>
+
+                <form id="employer-form" onsubmit="handleEmployerSubmit(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Company/Business Name *</label>
+                            <input type="text" placeholder="e.g., Sharma Construction" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Job Title *</label>
+                            <input type="text" placeholder="e.g., Electrician Needed" class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Required Skill *</label>
+                            <select class="form-input">
+                                <option value="" disabled selected>Select skill</option>
+                                <option value="electrician">Electrician</option>
+                                <option value="plumber">Plumber</option>
+                                <option value="carpenter">Carpenter</option>
+                                <option value="painter">Painter</option>
+                                <option value="driver">Driver</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Job Location *</label>
+                            <div class="input-with-icon">
+                                <span class="icon">📍</span>
+                                <input type="text" placeholder="e.g., Koramangala, Bangalore" class="form-input">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Daily Wage / Salary</label>
+                            <div class="input-with-icon">
+                                <span class="icon">💵</span>
+                                <input type="text" placeholder="e.g., ₹800 - ₹1,000/day" class="form-input">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Work Timing</label>
+                            <div class="input-with-icon">
+                                <span class="icon">🕒</span>
+                                <input type="text" placeholder="e.g., Full Day, Morning Shift" class="form-input">
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label>Job Description</label>
+                            <textarea rows="4" placeholder="Describe the work requirements..." class="form-input" style="resize: vertical;"></textarea>
+                        </div>
+
+                        <div class="form-group full-width" style="margin-bottom: 10px">
+                            <label>Contact WhatsApp Number</label>
+                            <div class="input-with-icon">
+                                <span class="icon">💬</span>
+                                <input type="tel" placeholder="+91 9876543210" class="form-input">
+                            </div>
+                            <small>Workers will contact you on this number</small>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="emp-submit-btn" class="emp-submit-btn">
+                        Post Job & Notify Workers
+                    </button>
+
+                    <p class="form-footer-note" id="emp-footer-note">Your job will be sent to all matching workers within 10km of the location</p>
+                </form>
+
+                <!-- ✅ Success State (hidden until submit) -->
+                <div id="employer-success" style="display:none; text-align:center; padding: 30px 10px;">
+                    <div style="font-size: 3.5rem; margin-bottom: 16px;">🚀</div>
+                    <h3 style="color: #1ebc57; font-size: 1.5rem; margin-bottom: 10px;">Job Posted Successfully!</h3>
+                    <p style="color: #555; font-size: 0.95rem; margin-bottom: 6px;">
+                        Your job has been sent to all matching workers within <strong>10km</strong> of your location.
+                    </p>
+                    <p style="color: #888; font-size: 0.85rem; margin-bottom: 24px;">
+                        Workers will contact you directly on your WhatsApp number. Average response time is <strong>~3 minutes</strong>.
+                    </p>
+                    <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 16px; margin-bottom: 24px; text-align:left;">
+                        <p style="font-size: 0.85rem; color: #166534; font-weight: 600; margin-bottom: 8px;">✅ What happens next?</p>
+                        <ul style="list-style:none; padding:0; margin:0; font-size: 0.85rem; color: #555; line-height: 2;">
+                            <li>📲 Matched workers get a WhatsApp notification</li>
+                            <li>💬 Workers reply directly to your number</li>
+                            <li>🤝 You shortlist and hire — no middleman</li>
+                        </ul>
+                    </div>
+                    <button onclick="resetEmployerForm()"
+                        style="background: #1ebc57; color: white; border: none; padding: 12px 28px; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer;">
+                        + Post Another Job
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+<script>
+    function handleEmployerSubmit(e) {
+        e.preventDefault();
+
+        const btn = document.getElementById('emp-submit-btn');
+        const footerNote = document.getElementById('emp-footer-note');
+
+        // --- Loading state ---
+        btn.disabled = true;
+        btn.innerHTML = '⏳ Posting your job...';
+        btn.style.opacity = '0.75';
+        btn.style.cursor = 'not-allowed';
+        footerNote.style.display = 'none';
+
+        // --- Simulate API (replace with real fetch later) ---
+        setTimeout(() => {
+            document.getElementById('employer-form').style.display = 'none';
+            document.getElementById('employer-success').style.display = 'block';
+        }, 2000);
+    }
+
+    function resetEmployerForm() {
+        const btn = document.getElementById('emp-submit-btn');
+        const footerNote = document.getElementById('emp-footer-note');
+
+        // Reset button
+        btn.disabled = false;
+        btn.innerHTML = 'Post Job & Notify Workers';
+        btn.style.opacity = '1';
+        btn.style.cursor = 'pointer';
+
+        // Reset form fields
+        document.getElementById('employer-form').reset();
+        footerNote.style.display = 'block';
+
+        // Toggle visibility
+        document.getElementById('employer-form').style.display = 'block';
+        document.getElementById('employer-success').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
